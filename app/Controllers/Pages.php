@@ -33,6 +33,17 @@ class Pages extends BaseController
 		];
 		return view('pages/peoples', $data);
 	}
+
+	public function movie($id)
+	{
+		$movie_data = file_get_contents('https://api.themoviedb.org/3/movie/'.$id.'?api_key=9ec4544e480b12bcd199a69fafef0d69');
+		$movie_data = json_decode($movie_data);
+		$data = [
+			'title' => 'MovieLBW',
+			'movie_data' => $movie_data
+		];
+		return view('pages/movie', $data);
+	}
 	//--------------------------------------------------------------------
 
 }
