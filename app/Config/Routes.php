@@ -33,7 +33,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::index');
 $routes->get('/movies', 'Pages::movies');
 $routes->get('/recommendation', 'Pages::recommendation');
-$routes->get('/people', 'Pages::people');
+$routes->get('/peoples', 'Pages::peoples');
 
 /**
  * --------------------------------------------------------------------
