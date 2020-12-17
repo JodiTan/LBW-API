@@ -6,7 +6,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('/movies'); ?>">Movies</a>
                 </li>
@@ -15,6 +15,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('/peoples'); ?>">People</a>
+                </li>
+            </ul>
+
+            <ul class = "navbar-nav">
+                <li class = "nav-item">
+                    <a class = "nav-link">Login</a>
                 </li>
             </ul>
         </div>
