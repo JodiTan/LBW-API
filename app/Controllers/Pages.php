@@ -10,6 +10,29 @@ class Pages extends BaseController
         return view('pages/home', $data);
 	}
 
+	public function movies()
+	{
+		$data = [
+			'title' => 'MovieLBW'
+		];
+		return view('pages/movies', $data);
+	}
+
+	public function recommendation()
+	{
+		$data = [
+			'title' => 'MovieLBW'
+		];
+		return view('pages/recommendation', $data);
+	}
+
+	public function people()
+	{
+		$data = [
+			'title' => 'MovieLBW'
+		];
+		return view('pages/people', $data);
+	}
 	//--------------------------------------------------------------------
 
 }
