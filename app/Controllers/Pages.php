@@ -26,12 +26,12 @@ class Pages extends BaseController
 		return view('pages/recommendation', $data);
 	}
 
-	public function people()
+	public function peoples()
 	{
 		$data = [
 			'title' => 'MovieLBW'
 		];
-		return view('pages/people', $data);
+		return view('pages/peoples', $data);
 	}
 
 	public function movie($id)
