@@ -17,9 +17,27 @@ class PeopleModel extends Model
         return $output;
     }
 
-    public function getPeopleProfile($id) {
+    public function getPeopleProfile($peopleId) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/$id?api_key=$this->api_key");
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/$peopleId?api_key=$this->api_key");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+        return $output;
+    }
+
+    public function getMovieCredits($peopleId) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/$peopleId/movie_credits?api_key=$this->api_key");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+        return $output;
+    }
+
+    public function getTVCredits($peopleId) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/$peopleId/tv_credits?api_key=$this->api_key");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = json_decode(curl_exec($ch), true);
         curl_close($ch);

@@ -25,10 +25,10 @@
 			?>
 			<div class="col">
 				<div class="card m-2">
-					<img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"] ?>" alt="<?php echo $people["name"] . " Profile" ?>">
+					<img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"]; ?>" alt="<?php echo $people["name"] . " Profile"; ?>">
 					<div class="card-body">
-						<p class="card-title d-flex h-50"> <a href="<?= base_url("/people/" . $people["id"]); ?>"> <?php echo $people["name"] ?> </a> </p>
-						<p class="card-text"> <i class="fa fa-fire" style="color:red;"></i> <?php echo $people["popularity"] ?> </p>
+						<p class="card-title d-flex h-50"> <a href="<?= base_url("/profile/" . $people["id"]); ?>"> <?php echo $people["name"]; ?> </a> </p>
+						<p class="card-text"> <i class="fa fa-fire" style="color:red;"></i> <?php echo $people["popularity"]; ?> </p>
 					</div>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 
 		<nav aria-label="Page navigation example">
 			<ul class="pagination">
-				<li class="page-item <?php echo $page == 1 ? "disabled" : ""; ?>"><a class="page-link" href="<?= base_url('/peoples/') ?>"><i class="fa fa-angle-double-left"></i></a></li>
+				<li class="page-item <?php echo $page == 1 ? "disabled" : ""; ?>"><a class="page-link" href="<?= base_url('/peoples/'); ?>"><i class="fa fa-angle-double-left"></i></a></li>
 				<?php
 				if ($page > 1) {
 				?>
@@ -55,7 +55,7 @@
 				?>
 
 				<li class="page-item active"><a class="page-link">
-					<?php echo $page ?>
+					<?php echo $page; ?>
 				</a></li>
 
 				<?php
@@ -67,7 +67,7 @@
 				<?php
 				}
 				?>
-				<li class="page-item <?php echo $page == $lastPage ? "disabled" : ""; ?>"><a class="page-link" href="<?= base_url('/peoples/' . $lastPage) ?>"><i class="fa fa-angle-double-right"></i></a></li>
+				<li class="page-item <?php echo $page == $lastPage ? "disabled" : ""; ?>"><a class="page-link" href="<?= base_url('/peoples/' . $lastPage); ?>"><i class="fa fa-angle-double-right"></i></a></li>
 			</ul>
 		</nav>
 	</div>

@@ -14,18 +14,20 @@ class People extends BaseController
 	public function index($page = 1)
 	{
 		$data = [
-            'title' => 'MovieLBW',
+            'title' => 'MovieLBW | Popular Peoples',
             'popularPeoples' => $this->peopleModel->getPopularPeople($page),
             'page' => $page
         ];
         return view('people/popular', $data);
     }
     
-    public function profile($people_id)
+    public function profile($peopleId)
     {
         $data = [
-            'title' => 'MovieLBW',
-            'profile' => $this->peopleModel->getPeopleProfile($people_id)
+            'title' => 'MovieLBW | Profile',
+            'profile' => $this->peopleModel->getPeopleProfile($peopleId),
+            'movieCredits' => $this->peopleModel->getMovieCredits($peopleId),
+            'tvCredits' => $this->peopleModel->getTVCredits($peopleId)
         ];
         return view('people/profile', $data);
     }
