@@ -25,10 +25,11 @@ class People extends BaseController
     {
         $data = [
             'title' => 'MovieLBW',
-            'profile_people' => $this->peopleModel->getPeopleProfile($people_id)
+            'profile' => $this->peopleModel->getPeopleProfile($people_id)
         ];
-        return view('', $data);
+        return view('pages/people', $data);
     }
+
 	//--------------------------------------------------------------------
 
 }

@@ -2,10 +2,10 @@
 
 <?= $this->section("content"); ?>
 <div class="container">
-	<div class="row mb-2">
+	<div class="row mt-3 mb-2">
 		<!-- Title -->
 		<h1> Who's Popular? </h1>
-	</div>	
+	</div>
 
 	<div class="row mb-3 justify-content-center">
 		<!-- People list -->
@@ -27,7 +27,7 @@
 				<div class="card m-2">
 					<img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"] ?>" alt="<?php echo $people["name"] . " Profile" ?>">
 					<div class="card-body">
-						<p class="card-title d-flex h-50"> <a href=""> <?php echo $people["name"] ?> </a> </p>
+						<p class="card-title d-flex h-50"> <a href="<?= base_url("/people/" . $people["id"]); ?>"> <?php echo $people["name"] ?> </a> </p>
 						<p class="card-text"> <i class="fa fa-fire" style="color:red;"></i> <?php echo $people["popularity"] ?> </p>
 					</div>
 				</div>
