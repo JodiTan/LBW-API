@@ -48,7 +48,7 @@
                             ?>
                             <div class="col-sm">
                                 <div class="card h-100">
-                                    <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" alt="<?php echo $movie["title"] . " Poster"; ?>">
+                                    <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $movie["title"] . " Poster"; ?>">
                                     <div class="card-body">
                                         <p class="card-title d-flex"> <a href=""> <?php echo $movie["title"]; ?> </a> </p>
                                         <p class="card-subtitle mb-2 text-muted"> <?php echo isset($movie["release_date"]) ? substr($movie["release_date"], 0, 4) : "Upcoming"; ?> </p>

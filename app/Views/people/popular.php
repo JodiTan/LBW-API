@@ -2,12 +2,12 @@
 
 <?= $this->section("content"); ?>
 <div class="container">
-	<div class="row mt-3 mb-2">
+	<div class="row my-3">
 		<!-- Title -->
 		<h1> Who's Popular? </h1>
 	</div>
 
-	<div class="row justify-content-center">
+	<div class="row">
 		<!-- People list -->
 		<?php
 		$peoples = $popularPeoples["results"];
@@ -19,13 +19,13 @@
 				$counter = 1;
 				?>
 				</div>
-				<div class="row mb-3">
+				<div class="row">
 				<?php
 			}
 			?>
-			<div class="col">
-				<div class="card m-2 h-100">
-					<img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"]; ?>" alt="<?php echo $people["name"] . " Profile"; ?>">
+			<div class="col m-2">
+				<div class="card h-100">
+					<img class="card-img-top custom-card-image" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $people["name"] . " Profile"; ?>">
 					<div class="card-body">
 						<p class="card-title d-flex"> <a href="<?= base_url("/profile/" . $people["id"]); ?>"> <?php echo $people["name"]; ?> </a> </p>
 						<p class="card-text"> <i class="fa fa-fire" style="color:red;"></i> <?php echo $people["popularity"]; ?> </p>
@@ -37,7 +37,7 @@
 		?>
 	</div>
 
-	<div class="row mb-2 justify-content-center">
+	<div class="row my-3 justify-content-center">
 		<!-- Pagination -->
 		<?php $lastPage = $popularPeoples["total_pages"]; ?>
 
