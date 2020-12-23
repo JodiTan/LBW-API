@@ -18,7 +18,7 @@ class People extends BaseController
             'popularPeoples' => $this->peopleModel->getPopularPeople($page),
             'page' => $page
         ];
-        return view('pages/peoples', $data);
+        return view('people/popular', $data);
     }
     
     public function profile($people_id)
@@ -27,7 +27,7 @@ class People extends BaseController
             'title' => 'MovieLBW',
             'profile' => $this->peopleModel->getPeopleProfile($people_id)
         ];
-        return view('pages/people', $data);
+        return view('people/profile', $data);
     }
 
 	//--------------------------------------------------------------------
