@@ -7,7 +7,7 @@
 		<h1> Who's Popular? </h1>
 	</div>
 
-	<div class="row mb-3 justify-content-center">
+	<div class="row justify-content-center">
 		<!-- People list -->
 		<?php
 		$peoples = $popularPeoples["results"];
@@ -24,10 +24,10 @@
 			}
 			?>
 			<div class="col">
-				<div class="card m-2">
+				<div class="card m-2 h-100">
 					<img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"]; ?>" alt="<?php echo $people["name"] . " Profile"; ?>">
 					<div class="card-body">
-						<p class="card-title d-flex h-50"> <a href="<?= base_url("/profile/" . $people["id"]); ?>"> <?php echo $people["name"]; ?> </a> </p>
+						<p class="card-title d-flex"> <a href="<?= base_url("/profile/" . $people["id"]); ?>"> <?php echo $people["name"]; ?> </a> </p>
 						<p class="card-text"> <i class="fa fa-fire" style="color:red;"></i> <?php echo $people["popularity"]; ?> </p>
 					</div>
 				</div>
