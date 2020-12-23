@@ -36,6 +36,7 @@ $routes->get('/recommendation', 'Pages::recommendation');
 $routes->get('/movie/(:num)', 'Pages::movie/$1');
 // People
 $routes->get('/peoples', 'People::index');
+$routes->get('/peoples/(:any)', 'People::index/$1');
 
 /**
  * --------------------------------------------------------------------

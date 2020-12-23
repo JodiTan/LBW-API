@@ -11,11 +11,12 @@ class People extends BaseController
         $this->peopleModel = new PeopleModel();
     }
 
-	public function index()
+	public function index($page = 1)
 	{
 		$data = [
             'title' => 'MovieLBW',
-            'popular_peoples' => $this->peopleModel->getPopularPeople()
+            'popularPeoples' => $this->peopleModel->getPopularPeople($page),
+            'page' => $page
         ];
         return view('pages/peoples', $data);
     }
