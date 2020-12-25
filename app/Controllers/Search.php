@@ -11,11 +11,14 @@ class Search extends BaseController
         $this->searchModel = new MultiSearchModel();
     }
 
-	public function index($page = 1, $query)
+	public function index($page = 1)
 	{
+        $query = $_GET["query"];
 		$data = [
             'title' => 'MovieLBW | Search',
-            'searchResult' => $this->searchModel->getSearchResult($page, $query)
+            'searchResult' => $this->searchModel->getSearchResult($page, $query),
+            'page' => $page,
+            'query' => $query
         ];
         return view('search/search', $data);
 	}

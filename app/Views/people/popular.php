@@ -41,7 +41,7 @@
 		<!-- Pagination -->
 		<?php $lastPage = $popularPeoples["total_pages"]; ?>
 
-		<nav aria-label="Page navigation example">
+		<nav>
 			<ul class="pagination">
 				<li class="page-item <?php echo $page == 1 ? "disabled" : ""; ?>"><a class="page-link" href="<?= base_url('/peoples/'); ?>"><i class="fa fa-angle-double-left"></i></a></li>
 				<?php

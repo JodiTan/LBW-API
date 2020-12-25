@@ -43,7 +43,7 @@ $routes->get('/peoples/(:num)', 'People::index/$1');
 $routes->get('/profile/(:num)', 'People::profile/$1');
 
 // Search
-$routes->get('/search/(:any)/(:num)', 'Search::index/$2/$1');
+$routes->get('/search/(:num)', 'Search::index/$1');
 
 /**
  * --------------------------------------------------------------------
