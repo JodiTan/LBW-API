@@ -24,10 +24,17 @@
     </div>
 
     <div class="container mb-2">
-        <h3>Acting</h3>
+        <h3>Movies Credit</h3>
         <!-- Movie credits -->
-        <div id="movieCreditCarousel" class="carousel slide">
-            <div class="carousel-inner">
+        <div id="movieCreditCarousel" class="carousel slide row" data-interval="false">
+            <div class="col">
+                <a class="carousel-control-prev text-dark" href="#movieCreditCarousel" role="button" data-slide="prev">
+                    <span class="fa fa-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </div>
+
+            <div class="col-11 carousel-inner">
                 <div class="carousel-item active">
                     <div class="row mb-2">
                         <?php
@@ -71,14 +78,8 @@
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row mb-2">
-            <div class="col-12">
-                <a class="carousel-control-prev text-dark" href="#movieCreditCarousel" role="button" data-slide="prev">
-                    <span class="fa fa-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
+            <div class="col">
                 <a class="carousel-control-next text-dark" href="#movieCreditCarousel" role="button" data-slide="next">
                     <span class="fa fa-chevron-right" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
@@ -88,7 +89,68 @@
     </div>
 
     <div class="row mb-2">
-        <!-- TV credits -->
+        <h3>TVs Credit</h3>
+        <!-- TVs credits -->
+        <div id="tvCreditCarousel" class="carousel slide row" data-interval="false">
+            <div class="col">
+                <a class="carousel-control-prev text-dark" href="#tvCreditCarousel" role="button" data-slide="prev">
+                    <span class="fa fa-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </div>
+
+            <div class="col-11 carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row mb-2">
+                        <?php
+                        $tvs = $tvCredits["cast"];
+                        $counter = 0;
+                        foreach ($tvs as $tv) {
+                            if ($counter < 6) {
+                                $counter++;
+                            } else {
+                                $counter = 1;
+                                ?>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="row mb-2">
+                                <?php
+                            }
+                            ?>
+                            <div class="col-sm">
+                                <div class="card h-100">
+                                    <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $tv["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $tv["name"] . " Poster"; ?>">
+                                    <div class="card-body">
+                                        <p class="card-title d-flex"> <a href=""> <?php echo $tv["name"]; ?> </a> </p>
+                                        <p class="card-subtitle mb-2 text-muted"> <?php echo $tv["episode_count"] . (($tv["episode_count"] > 1) ? " eps" : " ep"); ?> </p>
+                                        <p class="card-text d-flex"> as <?php echo $tv["character"]; ?> </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+
+                        if ($counter > 0) {
+                            while($counter < 6) {
+                                $counter++;
+                                ?>
+                                <div class="col-sm">&nbsp;</div>
+                                <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <a class="carousel-control-next text-dark" href="#tvCreditCarousel" role="button" data-slide="next">
+                    <span class="fa fa-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 <?= $this->endSection("content"); ?>
