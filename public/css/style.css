@@ -3,3 +3,7 @@
     height: 17vw;
     object-fit: cover;
 }
+
+.search-list-image {
+    max-width: 10%;
+}

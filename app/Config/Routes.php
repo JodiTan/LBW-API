@@ -39,8 +39,11 @@ $routes->get('/movies', 'Movies::index');
 
 // People
 $routes->get('/peoples', 'People::index');
-$routes->get('/peoples/(:any)', 'People::index/$1');
+$routes->get('/peoples/(:num)', 'People::index/$1');
 $routes->get('/profile/(:num)', 'People::profile/$1');
+
+// Search
+$routes->get('/search/(:any)/(:num)', 'Search::index/$2/$1');
 
 /**
  * --------------------------------------------------------------------
