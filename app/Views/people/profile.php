@@ -24,7 +24,7 @@
     </div>
 
     <div class="container mb-2">
-        <h3>Movies Credit</h3>
+        <h3>Movies Credits</h3>
         <!-- Movie credits -->
         <div id="movieCreditCarousel" class="carousel slide row" data-interval="false">
             <div class="col">
@@ -89,7 +89,7 @@
     </div>
 
     <div class="row mb-2">
-        <h3>TVs Credit</h3>
+        <h3>TVs Credits</h3>
         <!-- TVs credits -->
         <div id="tvCreditCarousel" class="carousel slide row" data-interval="false">
             <div class="col">
@@ -123,7 +123,7 @@
                                     <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $tv["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $tv["name"] . " Poster"; ?>">
                                     <div class="card-body">
                                         <p class="card-title d-flex"> <a href=""> <?php echo $tv["name"]; ?> </a> </p>
-                                        <p class="card-subtitle mb-2 text-muted"> <?php echo $tv["episode_count"] . (($tv["episode_count"] > 1) ? " eps" : " ep"); ?> </p>
+                                        <p class="card-subtitle mb-2 text-muted"> <?php echo $tv["episode_count"] . (($tv["episode_count"] > 1) ? " episodes" : " episode"); ?> </p>
                                         <p class="card-text d-flex"> as <?php echo $tv["character"]; ?> </p>
                                     </div>
                                 </div>
@@ -152,5 +152,6 @@
             </div>
         </div>
     </div>
+
 </div>
 <?= $this->endSection("content"); ?>
