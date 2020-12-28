@@ -32,10 +32,12 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
 
-$routes->get('/recommendation', 'Pages::recommendation');
-$routes->get('/movie/(:num)', 'Pages::movie/$1');
 //movies
 $routes->get('/movies', 'Movies::index');
+$routes->get('/movie/(:num)', 'Pages::movie/$1');
+
+//recommended
+$routes->get('/recommendation', 'Recommendation::index');
 
 // People
 $routes->get('/peoples', 'People::index');
