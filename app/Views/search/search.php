@@ -16,21 +16,21 @@
             ?>
             <li class="list-group-item d-flex justify-content-between align-items-center">
             <?php if ($result["media_type"] == "movie") { ?>
-                <?php echo $result["title"]; ?>
+                <a href=""><?php echo $result["title"]; ?></a>
                 <div class="search-list-image">
                     <img src="<?php echo "https://image.tmdb.org/t/p/w500/" . $result["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" class="img-fluid" alt="quixote">
                 </div>
             <?php
             } else if ($result["media_type"] == "tv") {
             ?>
-                <?php echo $result["name"]; ?>
+                <a href=""><?php echo $result["name"]; ?></a>
                 <div class="search-list-image">
                     <img src="<?php echo "https://image.tmdb.org/t/p/w500/" . $result["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" class="img-fluid" alt="quixote">
                 </div>
             <?php
                 } else if ($result["media_type"] == "person") {
             ?>
-                <?php echo $result["name"]; ?>
+                <a href="<?= base_url("/profile/" . $result["id"]); ?>"><?php echo $result["name"]; ?></a>
                 <div class="search-list-image">
                     <img src="<?php echo "https://image.tmdb.org/t/p/w500/" . $result["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" class="img-fluid" alt="quixote">
                 </div>
