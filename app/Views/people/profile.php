@@ -23,6 +23,10 @@
         </div>
     </div>
 
+    <?php
+    $movies = $movieCredits["cast"];
+    if(count($movies) > 0) {
+    ?>
     <div class="container mb-2">
         <h3>Movies Credits</h3>
         <!-- Movie credits -->
@@ -38,7 +42,6 @@
                 <div class="carousel-item active">
                     <div class="row mb-2">
                         <?php
-                        $movies = $movieCredits["cast"];
                         $counter = 0;
                         foreach ($movies as $movie) {
                             if ($counter < 6) {
@@ -87,7 +90,14 @@
             </div>
         </div>
     </div>
+    <?php
+    }
+    ?>
 
+    <?php
+    $tvs = $tvCredits["cast"];
+    if(count($tvs) > 0) {
+    ?>
     <div class="row mb-2">
         <h3>TVs Credits</h3>
         <!-- TVs credits -->
@@ -98,12 +108,10 @@
                     <span class="sr-only">Previous</span>
                 </a>
             </div>
-
             <div class="col-11 carousel-inner">
                 <div class="carousel-item active">
                     <div class="row mb-2">
                         <?php
-                        $tvs = $tvCredits["cast"];
                         $counter = 0;
                         foreach ($tvs as $tv) {
                             if ($counter < 6) {
@@ -143,7 +151,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col">
                 <a class="carousel-control-next text-dark" href="#tvCreditCarousel" role="button" data-slide="next">
                     <span class="fa fa-chevron-right" aria-hidden="true"></span>
@@ -152,6 +159,9 @@
             </div>
         </div>
     </div>
+    <?php
+    }
+    ?>
 
 </div>
 <?= $this->endSection("content"); ?>
