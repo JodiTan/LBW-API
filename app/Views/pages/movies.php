@@ -11,7 +11,7 @@
 	if(count($movies) > 0) {
 		?>
 		<div class="container mb-2">
-			<h3>Now Playing</h3>
+			<h1>Now Playing</h1>
 			<div id="moviesCarousel" class="carousel slide row" data-interval="false">
 				<div class="col">
 					<a class="carousel-control-prev text-dark" href="#moviesCarousel" role="button" data-slide="prev">
@@ -38,13 +38,22 @@
 									<?php
 								}
 								?>
-								<div class="col-sm text-center">
-									<div class="card h-100">
-										<img class="card-img-top h-auto" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $movie["title"] . " Poster"; ?>">
-										<div class="card-body text-center">
-											<h3 class="card-title d-flex "> <a href=""> <?php echo $movie["title"]; ?> </a> </h3>
+								<div class="col-sm ">
+									
+										<div class="card">
+											<div class="card-body">
+												<a href=" <?= base_url("/movie/" . $movie["id"]) ?> "> 
+													<h3 class="card-title d-flex text-dark"><?php echo $movie["title"]; ?></h3>
+												</a>
+
+												<i class="fa fa-fire" style="color:red;"></i> <?php echo $movie["popularity"]; ?>
+											</div>
+
+											<a href=" <?= base_url("/movie/" . $movie["id"]) ?> "> 
+												<img class="card-img" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $movie["title"] . " Poster"; ?>">
+											</a>
 										</div>
-									</div>
+									
 								</div>
 								<?php
 							}
