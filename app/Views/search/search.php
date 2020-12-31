@@ -16,9 +16,11 @@
             ?>
             <li class="list-group-item d-flex justify-content-between align-items-center">
             <?php if ($result["media_type"] == "movie") { ?>
-                <a href=""><?php echo $result["title"]; ?></a>
+                <a href="<?= base_url('/movies/details/' . $result["id"]) ?>"><?php echo $result["title"]; ?></a>
                 <div class="search-list-image">
-                    <img src="<?php echo "https://image.tmdb.org/t/p/w500/" . $result["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" class="img-fluid" alt="quixote">
+                    <a href="<?= base_url('movies/details/' . $result["id"]) ?>">
+                        <img src="<?php echo "https://image.tmdb.org/t/p/w500/" . $result["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" class="img-fluid" alt="quixote">
+                    </a>
                 </div>
             <?php
             } else if ($result["media_type"] == "tv") {
