@@ -18,9 +18,9 @@
                 </li>
             </ul>
 
-            <ul class = "navbar-nav">
-                <li class = "nav-item">
-                    <a class = "nav-link">Login</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('/signin') ?>">Sign In</a>
                 </li>
             </ul>
         </div>
