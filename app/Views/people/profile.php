@@ -7,7 +7,7 @@
 		<h1> <?php echo $profile["name"]; ?> </h1>
     </div>
     
-    <div class="row mb-2">
+    <div class="row my-2">
         <!-- Information -->
         <div class="col-md-2">
             <!-- Profile -->
@@ -27,7 +27,7 @@
     $movies = $movieCredits["cast"];
     if(count($movies) > 0) {
     ?>
-    <div class="container mb-2">
+    <div class="row my-2">
         <h3>Movies Credits</h3>
         <!-- Movie credits -->
         <div id="movieCreditCarousel" class="carousel slide row" data-interval="false">
@@ -98,7 +98,7 @@
     $tvs = $tvCredits["cast"];
     if(count($tvs) > 0) {
     ?>
-    <div class="row mb-2">
+    <div class="row my-2">
         <h3>TVs Credits</h3>
         <!-- TVs credits -->
         <div id="tvCreditCarousel" class="carousel slide row" data-interval="false">
