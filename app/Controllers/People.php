@@ -21,7 +21,7 @@ class People extends BaseController
         return view('people/popular', $data);
     }
     
-    public function profile($peopleId)
+    public function details($peopleId)
     {
         $data = [
             'title' => 'MovieLBW | Profile',
@@ -29,7 +29,7 @@ class People extends BaseController
             'movieCredits' => $this->peopleModel->getMovieCredits($peopleId),
             'tvCredits' => $this->peopleModel->getTVCredits($peopleId)
         ];
-        return view('people/profile', $data);
+        return view('people/details', $data);
     }
 
 	//--------------------------------------------------------------------

@@ -1,5 +1,5 @@
 <!-- Site footer -->
-<footer class="site-footer">
+<footer>
     <div class="container mt-4">
         <hr>
         <p class="text-center">

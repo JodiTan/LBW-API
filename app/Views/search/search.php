@@ -23,17 +23,21 @@
             <?php
             } else if ($result["media_type"] == "tv") {
             ?>
-                <a href=""><?php echo $result["name"]; ?></a>
+                <a href="<?= base_url('/tv/details/' . $result["id"]); ?>"><?php echo $result["name"]; ?></a>
                 <div class="search-list-image">
-                    <img src="<?php echo "https://image.tmdb.org/t/p/w500/" . $result["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" class="img-fluid" alt="quixote">
+                    <a href="<?= base_url('/tv/details/' . $result["id"]); ?>">
+                        <img src="<?php echo "https://image.tmdb.org/t/p/w500/" . $result["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" class="img-fluid" alt="quixote">
+                    </a>
                 </div>
             <?php
                 } else if ($result["media_type"] == "person") {
             ?>
-                <a href="<?= base_url("/profile/" . $result["id"]); ?>"><?php echo $result["name"]; ?></a>
+                <a href="<?= base_url("/people/details/" . $result["id"]); ?>"><?php echo $result["name"]; ?></a>
                 <div class="search-list-image">
-                    <img src="<?php echo "https://image.tmdb.org/t/p/w500/" . $result["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" class="img-fluid" alt="quixote">
-                </div>
+                    <a href="<?= base_url("/people/details/" . $result["id"]); ?>">
+                        <img src="<?php echo "https://image.tmdb.org/t/p/w500/" . $result["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" class="img-fluid" alt="quixote">
+                    </a>
+                    </div>
             <?php
                 }
             }

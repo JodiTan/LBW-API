@@ -25,9 +25,9 @@
 			?>
 			<div class="col m-2">
 				<div class="card h-100">
-					<a href="<?= base_url("/profile/" . $people["id"]); ?>"><img class="card-img-top custom-card-image" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $people["name"] . " Profile"; ?>"></a>
+					<a href="<?= base_url("/people/details/" . $people["id"]); ?>"><img class="card-img-top custom-card-image" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $people["name"] . " Profile"; ?>"></a>
 					<div class="card-body">
-						<p class="card-title d-flex"> <a href="<?= base_url("/profile/" . $people["id"]); ?>"> <?php echo $people["name"]; ?> </a> </p>
+						<p class="card-title d-flex"> <a href="<?= base_url("/people/details/" . $people["id"]); ?>"> <?php echo $people["name"]; ?> </a> </p>
 						<p class="card-text"> <i class="fa fa-fire" style="color:red;"></i> <?php echo $people["popularity"]; ?> </p>
 					</div>
 				</div>
@@ -43,11 +43,11 @@
 
 		<nav>
 			<ul class="pagination">
-				<li class="page-item <?php echo $page == 1 ? "disabled" : ""; ?>"><a class="page-link" href="<?= base_url('/peoples/'); ?>"><i class="fa fa-angle-double-left"></i></a></li>
+				<li class="page-item <?php echo $page == 1 ? "disabled" : ""; ?>"><a class="page-link" href="<?= base_url('/people/popular/'); ?>"><i class="fa fa-angle-double-left"></i></a></li>
 				<?php
 				if ($page > 1) {
 				?>
-				<li class="page-item"><a class="page-link" href="<?= $page - 1 >= 1 ? base_url('/peoples/' . ($page - 1)) : ""; ?>">
+				<li class="page-item"><a class="page-link" href="<?= $page - 1 >= 1 ? base_url('/people/popular/' . ($page - 1)) : ""; ?>">
 					<?php echo $page - 1 >= 1 ? $page - 1 : ""; ?>
 				</a></li>
 				<?php
@@ -61,13 +61,13 @@
 				<?php
 				if ($page < $lastPage) {
 				?>
-				<li class="page-item"><a class="page-link" href="<?= $page + 1 <= $lastPage ? base_url('/peoples/' . ($page + 1)) : ""; ?>">
+				<li class="page-item"><a class="page-link" href="<?= $page + 1 <= $lastPage ? base_url('/people/popular/' . ($page + 1)) : ""; ?>">
 					<?php echo $page + 1 <= $lastPage ? $page + 1 : ""; ?>
 				</a></li>
 				<?php
 				}
 				?>
-				<li class="page-item <?php echo $page == $lastPage ? "disabled" : ""; ?>"><a class="page-link" href="<?= base_url('/peoples/' . $lastPage); ?>"><i class="fa fa-angle-double-right"></i></a></li>
+				<li class="page-item <?php echo $page == $lastPage ? "disabled" : ""; ?>"><a class="page-link" href="<?= base_url('/people/popular/' . $lastPage); ?>"><i class="fa fa-angle-double-right"></i></a></li>
 			</ul>
 		</nav>
 	</div>

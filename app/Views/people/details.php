@@ -66,9 +66,11 @@
                                 ?>
                                 <div class="col-sm">
                                     <div class="card h-100">
-                                        <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $movie["title"] . " Poster"; ?>">
+                                        <a href="<?= base_url('/movies/details/' . $movie["id"]); ?>">
+                                            <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $movie["title"] . " Poster"; ?>">
+                                        </a>
                                         <div class="card-body">
-                                            <p class="card-title d-flex"> <a href=""> <?php echo $movie["title"]; ?> </a> </p>
+                                            <p class="card-title d-flex"> <a href="<?= base_url('/movies/details/' . $movie["id"]); ?>"> <?php echo $movie["title"]; ?> </a> </p>
                                             <p class="card-subtitle mb-2 text-muted"> <?php echo isset($movie["release_date"]) ? substr($movie["release_date"], 0, 4) : "Upcoming"; ?> </p>
                                             <p class="card-text d-flex"> as <?php echo empty($movie["character"]) ? "-" : $movie["character"]; ?> </p>
                                         </div>
@@ -134,9 +136,11 @@
                                 ?>
                                 <div class="col-sm">
                                     <div class="card h-100">
-                                        <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $movie["title"] . " Poster"; ?>">
+                                        <a href="<?= base_url('/movies/details/' . $movie["id"]); ?>">
+                                            <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $movie["title"] . " Poster"; ?>">
+                                        </a>
                                         <div class="card-body">
-                                            <p class="card-title d-flex"> <a href=""> <?php echo $movie["title"]; ?> </a> </p>
+                                            <p class="card-title d-flex"> <a href="<?= base_url('/movies/details/' . $movie["id"]); ?>"> <?php echo $movie["title"]; ?> </a> </p>
                                             <p class="card-subtitle mb-2 text-muted"> <?php echo isset($movie["release_date"]) ? substr($movie["release_date"], 0, 4) : "Upcoming"; ?> </p>
                                             <p class="card-text d-flex"> <?php echo empty($movie["department"]) ? "-" : $movie["department"]; ?> </p>
                                         </div>
@@ -217,9 +221,11 @@
                                 ?>
                                 <div class="col-sm">
                                     <div class="card h-100">
-                                        <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $tv["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $tv["name"] . " Poster"; ?>">
+                                        <a href="<?= base_url('/tv/details/' . $tv["id"]); ?>">
+                                            <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $tv["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $tv["name"] . " Poster"; ?>">
+                                        </a>
                                         <div class="card-body">
-                                            <p class="card-title d-flex"> <a href=""> <?php echo $tv["name"]; ?> </a> </p>
+                                            <p class="card-title d-flex"> <a href=""> <a href="<?= base_url('/tv/details/' . $tv["id"]); ?>"> <?php echo $tv["name"]; ?> </a> </p>
                                             <p class="card-subtitle mb-2 text-muted"> <?php echo isset($tv["episode_count"]) ? ($tv["episode_count"] . (($tv["episode_count"] > 1) ? " episodes" : " episode")) : "-"; ?> </p>
                                             <p class="card-text d-flex"> as <?php echo isset($tv["character"]) ? empty($tv["character"]) ? "-" : $tv["character"] : "-"; ?> </p>
                                         </div>
@@ -283,11 +289,13 @@
                                 ?>
                                 <div class="col-sm">
                                     <div class="card h-100">
-                                        <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $tv["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $tv["name"] . " Poster"; ?>">
+                                        <a href="<?= base_url('/tvdetails/' . $tv["id"]); ?>">
+                                            <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $tv["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $tv["name"] . " Poster"; ?>">
+                                        </a>
                                         <div class="card-body">
-                                            <p class="card-title d-flex"> <a href=""> <?php echo $tv["name"]; ?> </a> </p>
-                                            <p class="card-subtitle mb-2 text-muted"> <?php echo isset($tv["episode_count"]) ? ($tv["episode_count"] . (($tv["episode_count"] > 1) ? " episodes" : " episode")) : "-"; ?> </p>
-                                            <p class="card-text d-flex"> <?php echo empty($tv["department"]) ? "-" : $tv["department"]; ?> </p>
+                                        <p class="card-title d-flex"> <a href="<?= base_url('/tv/details/' . $tv["id"]); ?>"> <?php echo $tv["name"]; ?> </a> </p>
+                                        <p class="card-subtitle mb-2 text-muted"> <?php echo isset($tv["episode_count"]) ? ($tv["episode_count"] . (($tv["episode_count"] > 1) ? " episodes" : " episode")) : "-"; ?> </p>
+                                        <p class="card-text d-flex"> <?php echo empty($tv["department"]) ? "-" : $tv["department"]; ?> </p>
                                         </div>
                                     </div>
                                 </div>

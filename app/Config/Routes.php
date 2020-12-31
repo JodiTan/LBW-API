@@ -36,17 +36,20 @@ $routes->get('/', 'Pages::index');
 $routes->get('/signin', 'SignIn::index');
 $routes->get('/signup', 'SignUp::index');
 
-//movies
+// Movies
 $routes->get('/movies', 'Movies::index');
-$routes->get('/movie/(:num)', 'Pages::movie/$1');
+$routes->get('/movies/details/(:num)', 'Movies::details/$1');
+
+// TV
+$routes->get('/tv/details/(:num)', 'TV::details/$1');
 
 //recommended
 $routes->get('/recommendation', 'Recommendation::index');
 
 // People
-$routes->get('/peoples', 'People::index');
-$routes->get('/peoples/(:num)', 'People::index/$1');
-$routes->get('/profile/(:num)', 'People::profile/$1');
+$routes->get('/people/popular', 'People::index');
+$routes->get('/people/popular/(:num)', 'People::index/$1');
+$routes->get('/people/details/(:num)', 'People::details/$1');
 
 // Search
 $routes->get('/search/(:num)', 'Search::index/$1');

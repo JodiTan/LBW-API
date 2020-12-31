@@ -21,6 +21,15 @@ class Movies extends BaseController
         return view('pages/movies', $data);
     }
 
+    public function details($movieId)
+    {
+        $data = [
+            'title' => 'MovieLBW | Movie Details',
+            'details' => $this->moviesModel->getDetails($movieId)
+        ];
+        return view('movies/details', $data);
+    }
+
 	//--------------------------------------------------------------------
 
 }
