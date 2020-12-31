@@ -8,13 +8,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/movies'); ?>">Movies</a>
+                    <a class="nav-link" href="<?= base_url('/movies/nowPlaying/'); ?>">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('/tv/onAir/'); ?>">TV</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('/recommendation'); ?>">Recommendation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/people/popular'); ?>">People</a>
+                    <a class="nav-link" href="<?= base_url('/people/popular/'); ?>">People</a>
                 </li>
             </ul>
 

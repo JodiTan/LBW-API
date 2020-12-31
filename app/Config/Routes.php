@@ -37,10 +37,12 @@ $routes->get('/signin', 'SignIn::index');
 $routes->get('/signup', 'SignUp::index');
 
 // Movies
-$routes->get('/movies', 'Movies::index');
+$routes->get('/movies/nowPlaying/', 'Movies::index');
 $routes->get('/movies/details/(:num)', 'Movies::details/$1');
 
 // TV
+$routes->get('/tv/onAir/', 'TV::index');
+$routes->get('/tv/onAir/(:num)', 'TV::index/$1');
 $routes->get('/tv/details/(:num)', 'TV::details/$1');
 
 //recommended

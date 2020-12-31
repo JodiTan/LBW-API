@@ -1,6 +1,5 @@
 <?php namespace App\Controllers;
 
-use App\Models\PeopleModel;
 use App\Models\TVModel;
 
 class TV extends BaseController
@@ -14,7 +13,12 @@ class TV extends BaseController
 
 	public function index($page = 1)
 	{
-		
+		$data = [
+            'title' => 'MovieLBW | TV',
+            'onAir' => $this->tvModel->getOnAir($page),
+            'page' => $page
+        ];
+        return view('tv/onAir', $data);
     }
     
     public function details($tvId)
