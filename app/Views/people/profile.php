@@ -11,15 +11,15 @@
         <!-- Information -->
         <div class="col-md-2">
             <!-- Profile -->
-            <img src="<?php echo 'https://image.tmdb.org/t/p/w500/' . $profile['profile_path']; ?>" style="max-width: 100%;">
+            <img src="<?php echo 'https://image.tmdb.org/t/p/w500/' . $profile['profile_path']; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" style="max-width: 100%;">
         </div>
         <div class="col">
             <!-- Biography -->
-            <div class="row mb-1" style="text-align: justify;"><?php echo $profile["biography"]; ?></div>
+            <div class="row mb-1" style="text-align: justify;"><?php echo empty($profile["biography"]) ? "No biography is provided." : $profile["biography"]; ?></div>
             <!-- Place of birth -->
-            <div class="row mb-1"><b>Place of birth:&nbsp;</b><?php echo $profile["place_of_birth"]; ?></div>
+            <div class="row mb-1"><b>Place of birth:&nbsp;</b><?php echo empty($profile["place_of_birth"]) ? "-" : $profile["place_of_birth"]; ?></div>
             <!-- Date of birth -->
-            <div class="row mb-1"><b>Birthday:&nbsp;</b><?php echo $profile["birthday"]; ?></div>
+            <div class="row mb-1"><b>Birthday:&nbsp;</b><?php echo empty($profile["birthday"]) ? "-" : $profile["birthday"] ; ?></div>
         </div>
     </div>
 
@@ -62,7 +62,7 @@
                                     <div class="card-body">
                                         <p class="card-title d-flex"> <a href=""> <?php echo $movie["title"]; ?> </a> </p>
                                         <p class="card-subtitle mb-2 text-muted"> <?php echo isset($movie["release_date"]) ? substr($movie["release_date"], 0, 4) : "Upcoming"; ?> </p>
-                                        <p class="card-text d-flex"> as <?php echo $movie["character"]; ?> </p>
+                                        <p class="card-text d-flex"> as <?php echo empty($movie["character"]) ? "-" : $movie["character"]; ?> </p>
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@
                                     <div class="card-body">
                                         <p class="card-title d-flex"> <a href=""> <?php echo $tv["name"]; ?> </a> </p>
                                         <p class="card-subtitle mb-2 text-muted"> <?php echo $tv["episode_count"] . (($tv["episode_count"] > 1) ? " episodes" : " episode"); ?> </p>
-                                        <p class="card-text d-flex"> as <?php echo $tv["character"]; ?> </p>
+                                        <p class="card-text d-flex"> as <?php echo empty($tv["character"]) ? "-" : $tv["character"]; ?> </p>
                                     </div>
                                 </div>
                             </div>

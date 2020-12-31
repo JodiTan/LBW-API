@@ -25,7 +25,7 @@
 			?>
 			<div class="col m-2">
 				<div class="card h-100">
-					<img class="card-img-top custom-card-image" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $people["name"] . " Profile"; ?>">
+					<a href="<?= base_url("/profile/" . $people["id"]); ?>"><img class="card-img-top custom-card-image" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $people["name"] . " Profile"; ?>"></a>
 					<div class="card-body">
 						<p class="card-title d-flex"> <a href="<?= base_url("/profile/" . $people["id"]); ?>"> <?php echo $people["name"]; ?> </a> </p>
 						<p class="card-text"> <i class="fa fa-fire" style="color:red;"></i> <?php echo $people["popularity"]; ?> </p>
