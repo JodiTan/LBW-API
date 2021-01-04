@@ -1,7 +1,7 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
-<div  class="container mt-3">
+<div class="container mt-3">
 	<h1>Home</h1>
 </div>
 
@@ -31,4 +31,5 @@
     <span class="sr-only">Next</span>
   </a>
 </div> -->
+
 <?= $this->endSection('content'); ?>

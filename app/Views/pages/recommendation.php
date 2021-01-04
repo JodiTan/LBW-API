@@ -6,7 +6,7 @@
 </div>
 
 <div class="row">
-		<!-- People list -->
+		<!-- Movie list -->
 		<?php
 		$movies = $recommendation["results"];
 		$counter = 0;
@@ -34,3 +34,4 @@
 		?>
 </div>
 <?= $this->endSection('content'); ?>
+

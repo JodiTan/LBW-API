@@ -46,7 +46,7 @@ $routes->get('/tv/onAir/(:num)', 'TV::index/$1');
 $routes->get('/tv/details/(:num)', 'TV::details/$1');
 
 //recommended
-$routes->get('/recommendation', 'Recommendation::index');
+$routes->get('/pages/recommendation/', 'Recommendation::index');
 
 // People
 $routes->get('/people/popular', 'People::index');
