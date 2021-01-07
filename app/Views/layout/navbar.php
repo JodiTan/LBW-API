@@ -22,12 +22,6 @@
                     <a class="nav-link" href="<?= base_url('/people/popular/'); ?>">People</a>
                 </li>
             </ul>
-
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('/signin') ?>">Sign In</a>
-                </li>
-            </ul>
         </div>
 
         <form class="form-inline my-2 my-lg-0" action="<?= base_url("/search") ?>" method="GET">
