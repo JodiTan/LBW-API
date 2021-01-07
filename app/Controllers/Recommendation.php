@@ -2,7 +2,7 @@
 
 use App\Models\RecommendationModel;
 
-class Movies extends BaseController
+class Recommendation extends BaseController
 {
     protected $recommendationModel;
 
