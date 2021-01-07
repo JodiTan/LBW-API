@@ -2,34 +2,14 @@
 
 <?= $this->section('content'); ?>
 <div class="container">
-	<h1>Home</h1>
+  <div class="row-my-3">
+    <br>
+	  <h1>Welcome to MovieLBW !</h1>
+  </div>
 
-  <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-block" src="public/images/iklan1.jpg" alt="First slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block" src="public/images/iklan2.jpg" alt="Second slide">
-      </div>
-      <div class="carousel-item">
-        <img class="d-block" src="public/images/iklan3.jpg" alt="Third slide">
-      </div>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div> -->
+  <div class="row-my-3">
+	  <p>Upcoming Event</p>
+  </div>
 
   <div class="row">
       <!-- Movie list -->
@@ -52,6 +32,8 @@
             <img class="card-img-top custom-card-image" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $movie["title"] . " Title"; ?>">
             <div class="card-body">
               <p class="card-title d-flex"> <a href="<?= base_url("/profile/" . $movie["id"]); ?>"> <?php echo $movie["title"]; ?> </a> </p>
+              <p class="card-subtitle mb-2 text-muted"> <?php echo isset($movie["release_date"]) ? substr($movie["release_date"], 0, 4) : "Upcoming"; ?> </p>
+              <p class="card-text"> <i class="fa fa-fire" style="color:red;"></i> <?php echo $movie["popularity"]; ?> </p>
             </div>
           </div>
         </div>
