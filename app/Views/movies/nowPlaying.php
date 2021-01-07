@@ -42,14 +42,14 @@
 									
 										<div class="card">
 											<div class="card-body">
-												<a href=" <?= base_url("/movie/" . $movie["id"]) ?> "> 
+												<a href=" <?= base_url("/movies/details/" . $movie["id"]) ?> "> 
 													<h3 class="card-title d-flex text-dark"><?php echo $movie["title"]; ?></h3>
 												</a>
 
 												<i class="fa fa-fire" style="color:red;"></i> <?php echo $movie["popularity"]; ?>
 											</div>
 
-											<a href=" <?= base_url("/movie/" . $movie["id"]) ?> "> 
+											<a href=" <?= base_url("/movies/details/" . $movie["id"]) ?> "> 
 												<img class="card-img" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $movie["title"] . " Poster"; ?>">
 											</a>
 										</div>
