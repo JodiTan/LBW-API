@@ -2,10 +2,10 @@
 
 <?= $this->section('content'); ?>
 <div class="container">
-	<h1> Recommendation </h1>
-</div>
-
-<div class="row">
+	<div class="row-my-3">
+		<h1> Recommendation </h1>
+	</div>
+	<div class="row">
 		<!-- Movie list -->
 		<?php
 		$movies = $recommendation["results"];
@@ -32,6 +32,7 @@
 			<?php
 		}
 		?>
+	</div>
 </div>
 <?= $this->endSection('content'); ?>
 

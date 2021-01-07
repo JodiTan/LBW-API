@@ -2,7 +2,7 @@
 
 use App\Models\HomeModel;
 
-class Movies extends BaseController
+class Home extends BaseController
 {
     protected $homeModel;
 
@@ -11,11 +11,12 @@ class Movies extends BaseController
         $this->homeModel = new HomeModel();
     }
 
-	public function index()
+	public function index($page = 1)
 	{
 		$data = [
             'title' => 'MovieLBW | Home',
-            'latest' => $this->homeModel->getLatest(),
+            'home' => $this->homeModel->getLatest($page),
+            'page' => $page
         ];
         return view('pages/home', $data);
     }
