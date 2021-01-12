@@ -25,7 +25,8 @@ class Movies extends BaseController
     {
         $data = [
             'title' => 'MovieLBW | Movie Details',
-            'details' => $this->moviesModel->getDetails($movieId)
+            'details' => $this->moviesModel->getDetails($movieId),
+            'credits' => $this->moviesModel->getCredits($movieId)
         ];
         return view('movies/details', $data);
     }
