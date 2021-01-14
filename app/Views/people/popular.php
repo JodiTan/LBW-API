@@ -13,6 +13,7 @@
 		$peoples = $popularPeoples["results"];
 		$counter = 0;
 		foreach ($peoples as $people) {
+			$popularityRatio = ($people["popularity"])/$maximumPopularity * 100;
 			if ($counter < 5) {
 				$counter++;
 			} else {
@@ -28,7 +29,9 @@
 					<a href="<?= base_url("/people/details/" . $people["id"]); ?>"><img class="card-img-top custom-card-image" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $people["name"] . " Profile"; ?>"></a>
 					<div class="card-body">
 						<p class="card-title d-flex"> <a href="<?= base_url("/people/details/" . $people["id"]); ?>"> <?php echo $people["name"]; ?> </a> </p>
-						<p class="card-text"> <i class="fa fa-fire" style="color:red;"></i> <?php echo $people["popularity"]; ?> </p>
+						<div class="progress">
+							<div class="progress-bar <?php echo ($popularityRatio > 70) ? 'bg-danger' : '' ?>" role="progressbar" style="width: <?php echo $popularityRatio ?>%" aria-valuenow="<?php echo $popularityRatio; ?>;" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
 					</div>
 				</div>
 			</div>

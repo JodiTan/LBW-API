@@ -16,6 +16,7 @@ class People extends BaseController
 		$data = [
             'title' => 'MovieLBW | Popular Peoples',
             'popularPeoples' => $this->peopleModel->getPopularPeople($page),
+            'maximumPopularity' => $this->peopleModel->getMaximumPopularity(),
             'page' => $page
         ];
         return view('people/popular', $data);

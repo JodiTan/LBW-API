@@ -7,6 +7,7 @@ use CodeIgniter\Model;
 class PeopleModel extends Model
 {
     protected $api_key = '2695db7da16dc8dc807f8deb23b67567';
+    protected $maximum_value = -1;
 
     public function getPopularPeople($page = 1) {
         $ch = curl_init();
@@ -15,6 +16,14 @@ class PeopleModel extends Model
         $output = json_decode(curl_exec($ch), true);
         curl_close($ch);
         return $output;
+    }
+
+    public function getMaximumPopularity() {
+        if ($this->maximum_value == -1) {
+            $firstPage = $this->getPopularPeople(1)["results"];
+            $this->maximum_value = max(array_column($firstPage, 'popularity'));
+        }
+        return $this->maximum_value;
     }
 
     public function getPeopleProfile($peopleId) {
