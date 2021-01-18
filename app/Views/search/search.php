@@ -32,7 +32,7 @@
                 <div>
                     <a href="<?= base_url('/tv/details/' . $result["id"]); ?>"><?php echo $result["name"]; ?></a>
                     <br>
-                    TV Shows
+                    TV Show
                 </div>
                 <div class="search-list-image">
                     <a href="<?= base_url('/tv/details/' . $result["id"]); ?>">

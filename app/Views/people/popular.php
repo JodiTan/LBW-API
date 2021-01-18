@@ -27,9 +27,9 @@
 			<div class="col m-2">
 				<div class="card h-100">
 					<a href="<?= base_url("/people/details/" . $people["id"]); ?>"><img class="card-img-top custom-card-image" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $people["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $people["name"] . " Profile"; ?>"></a>
-					<div class="card-body">
+					<div class="card-body d-flex flex-column">
 						<p class="card-title d-flex"> <a href="<?= base_url("/people/details/" . $people["id"]); ?>"> <?php echo $people["name"]; ?> </a> </p>
-						<div class="progress">
+						<div class="progress mt-auto" <?php echo ($popularityRatio > 70) ? 'data-toggle="tooltip" data-placement="top" title="It\'s getting popular right now!"' : '';?> >
 							<div class="progress-bar <?php echo ($popularityRatio > 70) ? 'bg-danger' : '' ?>" role="progressbar" style="width: <?php echo $popularityRatio ?>%" aria-valuenow="<?php echo $popularityRatio; ?>;" aria-valuemin="0" aria-valuemax="100"><?php echo (int) $popularityRatio . "%"; ?></div>
 						</div>
 					</div>
