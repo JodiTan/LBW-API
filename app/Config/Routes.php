@@ -32,12 +32,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('/', 'Pages::index');
 
-//home
-$routes->get('/pages/home/', 'Home::index');
-
-// Signin, Signup
-$routes->get('/signin', 'SignIn::index');
-$routes->get('/signup', 'SignUp::index');
+// Home
+$routes->get('/home/', 'Home::index');
+$routes->get('/home/(:num)', 'Home::index');
 
 // Movies
 $routes->get('/movies/nowPlaying/', 'Movies::index');
@@ -48,8 +45,9 @@ $routes->get('/tv/onAir/', 'TV::index');
 $routes->get('/tv/onAir/(:num)', 'TV::index/$1');
 $routes->get('/tv/details/(:num)', 'TV::details/$1');
 
-//recommended
-$routes->get('/pages/recommendation/', 'Recommendation::index');
+// Recommendation
+$routes->get('/recommendation/', 'Recommendation::index');
+$routes->get('/recommendation/(:num)', 'Recommendation::index/$1');
 
 // People
 $routes->get('/people/popular', 'People::index');

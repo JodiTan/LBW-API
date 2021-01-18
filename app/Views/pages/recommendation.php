@@ -2,16 +2,17 @@
 
 <?= $this->section('content'); ?>
 <div class="container">
-	<div class="row-my-3">
-	<br>
-	<h1> Recommendation </h1>
+	<div class="row my-3">
+		<h1> Recommendation for You </h1>
 	</div>
+
 	<div class="row">
 		<!-- Movie list -->
 		<?php
 		$movies = $recommendation["results"];
 		$counter = 0;
 		foreach ($movies as $movie) {
+			$popularityRatio = ($movie["popularity"])/$maximumPopularity * 100;
 			if ($counter < 5) {
 				$counter++;
 			} else {
@@ -24,17 +25,56 @@
 			?>
 			<div class="col m-2">
 				<div class="card h-100">
-					<img class="card-img-top custom-card-image" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $movie["title"] . " Title"; ?>">
+					<a href="<?= base_url("/movies/details/" . $movie["id"]); ?>">
+						<img class="card-img-top custom-card-image" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $movie["poster_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $movie["title"] . " Title"; ?>">
+					</a>
 					<div class="card-body">
-						<p class="card-title d-flex"> <a href="<?= base_url("/profile/" . $movie["id"]); ?>"> <?php echo $movie["title"]; ?> </a> </p>
+						<p class="card-title d-flex"> <a href="<?= base_url("/movies/details/" . $movie["id"]); ?>"> <?php echo $movie["title"]; ?> </a> </p>
 						<p class="card-subtitle mb-2 text-muted"> <?php echo isset($movie["release_date"]) ? substr($movie["release_date"], 0, 4) : "Upcoming"; ?> </p>
-						<p class="card-text"> <i class="fa fa-fire" style="color:red;"></i> <?php echo $movie["popularity"]; ?> </p>
+						<div class="progress">
+							<div class="progress-bar <?php echo ($popularityRatio > 70) ? 'bg-danger' : '' ?>" role="progressbar" style="width: <?php echo $popularityRatio ?>%" aria-valuenow="<?php echo $popularityRatio; ?>;" aria-valuemin="0" aria-valuemax="100"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 			<?php
 		}
 		?>
+	</div>
+
+	<div class="row my-3 justify-content-center">
+		<!-- Pagination -->
+		<?php $lastPage = $recommendation["total_pages"]; ?>
+
+		<nav>
+			<ul class="pagination">
+				<li class="page-item <?php echo $page == 1 ? "disabled" : ""; ?>"><a class="page-link" href="<?= base_url('/recommendation/'); ?>"><i class="fa fa-angle-double-left"></i></a></li>
+				<?php
+				if ($page > 1) {
+				?>
+				<li class="page-item"><a class="page-link" href="<?= $page - 1 >= 1 ? base_url('/recommendation/' . ($page - 1)) : ""; ?>">
+					<?php echo $page - 1 >= 1 ? $page - 1 : ""; ?>
+				</a></li>
+				<?php
+				}
+				?>
+
+				<li class="page-item active"><a class="page-link">
+					<?php echo $page; ?>
+				</a></li>
+
+				<?php
+				if ($page < $lastPage) {
+				?>
+				<li class="page-item"><a class="page-link" href="<?= $page + 1 <= $lastPage ? base_url('/recommendation/' . ($page + 1)) : ""; ?>">
+					<?php echo $page + 1 <= $lastPage ? $page + 1 : ""; ?>
+				</a></li>
+				<?php
+				}
+				?>
+				<li class="page-item <?php echo $page == $lastPage ? "disabled" : ""; ?>"><a class="page-link" href="<?= base_url('/recommendation/' . $lastPage); ?>"><i class="fa fa-angle-double-right"></i></a></li>
+			</ul>
+		</nav>
 	</div>
 </div>
 <?= $this->endSection('content'); ?>

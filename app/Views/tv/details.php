@@ -6,6 +6,21 @@
 		<!-- Title -->
 		<h1> <?php echo $information["name"]; ?> </h1>
     </div>
+    <div class="row">
+        <!-- Additional Info -->
+        <h6>
+            <?php
+                echo $information['first_air_date'] . ' - ' . $information['last_air_date'];
+                $temp_genre = "";
+                for($i = 0; $i < count($information["genres"])-1; $i++){
+                    $temp_genre = $temp_genre.$information["genres"][$i]["name"].", ";
+                }
+                $temp_genre = $temp_genre.$information["genres"][$i]["name"];
+                echo " · ";
+                echo $temp_genre;
+            ?>
+        </h6>
+    </div>
     
     <div class="row my-2">
         <!-- Information -->
