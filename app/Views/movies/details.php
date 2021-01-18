@@ -47,8 +47,8 @@
     if (count($credits["cast"]) > 0) {
     ?>
         <!-- Cast -->
-        <div class="my-1">
-            <h4>Cast</h4>
+        <div class="my-4">
+            <h3>Casts</h3>
             <div id="castCarousel" class="carousel slide row" data-interval="false">
                 <div class="col">
                     <a class="carousel-control-prev text-dark" href="#castCarousel" role="button" data-slide="prev">
@@ -81,8 +81,8 @@
                                             <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $cast["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $cast["name"]; ?>">
                                         </a>
                                         <div class="card-body">
-                                            <p class="card-title d-flex"> <a href="<?= base_url('/people/details/' . $cast["id"]); ?>"> <?php echo $cast["name"]; ?> </a> </p>
-                                            <p class="card-text d-flex"> as <?php echo empty($cast["character"]) ? "-" : $cast["character"]; ?> </p>
+                                            <p class="card-title d-flex text-truncate"> <a href="<?= base_url('/people/details/' . $cast["id"]); ?>"> <?php echo $cast["name"]; ?> </a> </p>
+                                            <p class="card-text d-flex text-truncate"> as <?php echo empty($cast["character"]) ? "-" : $cast["character"]; ?> </p>
                                         </div>
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@
     ?>
         <!-- Crew -->
         <div class="my-1">
-            <h4>Crew</h4>
+            <h3>Crews</h3>
             <div id="crewCarousel" class="carousel slide row" data-interval="false">
                 <div class="col">
                     <a class="carousel-control-prev text-dark" href="#crewCarousel" role="button" data-slide="prev">
@@ -152,8 +152,8 @@
                                             <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $crew["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $crew["name"]; ?>">
                                         </a>
                                         <div class="card-body">
-                                            <p class="card-title d-flex"> <a href="<?= base_url('/people/details/' . $crew["id"]); ?>"> <?php echo $crew["name"]; ?> </a> </p>
-                                            <p class="card-text d-flex"><?php echo empty($crew["department"]) ? "-" : $crew["department"]; ?> </p>
+                                            <p class="card-title d-flex text-truncate"> <a href="<?= base_url('/people/details/' . $crew["id"]); ?>"> <?php echo $crew["name"]; ?> </a> </p>
+                                            <p class="card-text d-flex text-truncate"><?php echo empty($crew["department"]) ? "-" : $crew["department"]; ?> </p>
                                         </div>
                                     </div>
                                 </div>

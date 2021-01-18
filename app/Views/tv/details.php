@@ -78,8 +78,8 @@
                                         <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $credit["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $credit["name"] . " Profile"; ?>">
                                     </a>
                                     <div class="card-body">
-                                    <p class="card-title d-flex"> <a href="<?= base_url('/people/details/' . $credit["id"]) ?>"> <?php echo $credit["name"]; ?> </a> </p>
-                                    <p class="card-text d-flex"> as <?php echo empty($credit["character"]) ? "-" : $credit["character"]; ?> </p>
+                                    <p class="card-title d-flex text-truncate"> <a href="<?= base_url('/people/details/' . $credit["id"]) ?>"> <?php echo $credit["name"]; ?> </a> </p>
+                                    <p class="card-text d-flex text-truncate"> as <?php echo empty($credit["character"]) ? "-" : $credit["character"]; ?> </p>
                                     </div>
                                 </div>
                             </div>
@@ -147,8 +147,8 @@
                                         <img class="card-img-top" src="<?php echo "https://image.tmdb.org/t/p/w500/" . $credit["profile_path"]; ?>" onerror="this.onerror=null;this.src='<?= base_url('images/not-available.png') ?>'" alt="<?php echo $credit["name"] . " Profile"; ?>">
                                     </a>
                                     <div class="card-body">
-                                    <p class="card-title d-flex"> <a href="<?= base_url('/people/details/' . $credit["id"]) ?>"> <?php echo $credit["name"]; ?> </a> </p>
-                                    <p class="card-text d-flex"> <?php echo empty($credit["department"]) ? "-" : $credit["department"]; ?> </p>
+                                    <p class="card-title d-flex text-truncate"> <a href="<?= base_url('/people/details/' . $credit["id"]) ?>"> <?php echo $credit["name"]; ?> </a> </p>
+                                    <p class="card-text d-flex text-truncate"> <?php echo empty($credit["department"]) ? "-" : $credit["department"]; ?> </p>
                                     </div>
                                 </div>
                             </div>
