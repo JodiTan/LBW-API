@@ -16,6 +16,7 @@ class Movies extends BaseController
 		$data = [
             'title' => 'MovieLBW | Now Playing',
             'nowPlaying' => $this->moviesModel->getNowPlaying($page),
+            'maximumPopularity' => $this->moviesModel->getMaximumPopularity(),
             'page' => $page,
             'position' => 1
         ];

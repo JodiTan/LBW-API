@@ -1,7 +1,7 @@
 <?= $this->extend("layout/template"); ?>
 
 <?= $this->section("content"); ?>
-<div class="container">
+	<div class="container">
     	<div class="row my-3">
 		<!-- Title -->
 		<h1> What's On Air? </h1>
