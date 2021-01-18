@@ -16,7 +16,8 @@ class TV extends BaseController
 		$data = [
             'title' => 'MovieLBW | TV',
             'onAir' => $this->tvModel->getOnAir($page),
-            'page' => $page
+            'page' => $page,
+            'position' => 2
         ];
         return view('tv/onAir', $data);
     }

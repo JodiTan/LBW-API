@@ -16,7 +16,8 @@ class Home extends BaseController
 		$data = [
             'title' => 'MovieLBW | Home',
             'home' => $this->homeModel->getLatest($page),
-            'page' => $page
+            'page' => $page,
+            'position' => 0
         ];
         return view('pages/home', $data);
     }

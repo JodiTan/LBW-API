@@ -16,7 +16,8 @@ class Movies extends BaseController
 		$data = [
             'title' => 'MovieLBW | Now Playing',
             'nowPlaying' => $this->moviesModel->getNowPlaying($page),
-            'page' => $page
+            'page' => $page,
+            'position' => 1
         ];
         return view('movies/nowPlaying', $data);
     }

@@ -17,7 +17,8 @@ class Recommendation extends BaseController
             'title' => 'MovieLBW | Recommendation',
             'recommendation' => $this->recommendationModel->getTopRated($page),
             'maximumPopularity' => $this->recommendationModel->getMaximumPopularity(),
-            'page' => $page
+            'page' => $page,
+            'position' => 3
         ];
         return view('pages/recommendation', $data);
     }
