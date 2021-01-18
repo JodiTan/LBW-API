@@ -8,16 +8,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item <?php echo $position == 1 ? 'active' : ''; ?>">
+                <li class="nav-item <?php echo isset($position) ? ($position == 1 ? 'active' : '') : ''; ?>">
                     <a class="nav-link" href="<?= base_url('/movies/nowPlaying/'); ?>">Movies</a>
                 </li>
-                <li class="nav-item <?php echo $position == 2 ? 'active' : ''; ?>">
+                <li class="nav-item <?php echo isset($position) ? ($position == 2 ? 'active' : '') : ''; ?>">
                     <a class="nav-link" href="<?= base_url('/tv/onAir/'); ?>">TV</a>
                 </li>
-                <li class="nav-item <?php echo $position == 3 ? 'active' : ''; ?>">
+                <li class="nav-item <?php echo isset($position) ? ($position == 3 ? 'active' : '') : ''; ?>">
                     <a class="nav-link" href="<?= base_url('/recommendation'); ?>">Recommendation</a>
                 </li>
-                <li class="nav-item <?php echo $position == 4 ? 'active' : ''; ?>">
+                <li class="nav-item <?php echo isset($position) ? ($position == 4 ? 'active' : '') : ''; ?>">
                     <a class="nav-link" href="<?= base_url('/people/popular/'); ?>">People</a>
                 </li>
             </ul>
