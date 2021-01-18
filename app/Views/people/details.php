@@ -36,7 +36,7 @@
     if (count($movies_cast) > 0) {
     ?>
         <!-- Cast -->
-        <div class="my-1">
+        <div class="my-1 w-100">
             <h4>Cast</h4>
             <div id="movieCastCreditCarousel" class="carousel slide row" data-interval="false">
                 <div class="col">
@@ -106,7 +106,7 @@
     if (count($movies_crew) > 0) {
     ?>
         <!-- Crew -->
-        <div class="my-1">
+        <div class="my-1 w-100">
             <h4>Crew</h4>
             <div id="movieCrewCreditCarousel" class="carousel slide row" data-interval="false">
                 <div class="col">
@@ -192,7 +192,7 @@
         if (count($tvs_cast) > 0) {
         ?>
         <!-- Cast -->
-        <div class="my-1">
+        <div class="my-1 w-100">
             <h4>Cast</h4>
             <div id="tvCastCreditCarousel" class="carousel slide row" data-interval="false">
                 <div class="col">
@@ -260,7 +260,7 @@
         if (count($tvs_crew) > 0) {
         ?>
         <!-- Crew -->
-        <div class="my-1">
+        <div class="my-1 w-100">
             <h4>Crew</h4>
             <div id="tvCrewCreditCarousel" class="carousel slide row" data-interval="false">
                 <div class="col">
