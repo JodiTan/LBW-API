@@ -16,6 +16,7 @@ class TV extends BaseController
 		$data = [
             'title' => 'MovieLBW | TV',
             'onAir' => $this->tvModel->getOnAir($page),
+            'maximumPopularity' => $this->tvModel->getMaximumPopularity(),
             'page' => $page,
             'position' => 2
         ];

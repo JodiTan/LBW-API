@@ -13,6 +13,7 @@
 		$tvs = $onAir["results"];
 		$counter = 0;
 		foreach ($tvs as $tv) {
+			$popularityRatio = ($tv["popularity"])/$maximumPopularity * 100;
 			if ($counter < 5) {
 				$counter++;
 			} else {
@@ -29,7 +30,9 @@
 					<div class="card-body">
 						<p class="card-title d-flex"> <a href="<?= base_url("/tv/details/" . $tv["id"]); ?>"> <?php echo $tv["name"]; ?> </a> </p>
                         <p class="card-subtitle mb-2 text-muted"> <?php echo isset($tv["first_air_date"]) ? substr($tv["first_air_date"], 0, 4) : "Upcoming"; ?> </p>
-						<p class="card-text"> <i class="fa fa-fire" style="color:red;"></i> <?php echo $tv["popularity"]; ?> </p>
+						<div class="progress">
+							<div class="progress-bar <?php echo ($popularityRatio > 70) ? 'bg-danger' : '' ?>" role="progressbar" style="width: <?php echo $popularityRatio ?>%" aria-valuenow="<?php echo $popularityRatio; ?>;" aria-valuemin="0" aria-valuemax="100"><?php echo (int) $popularityRatio . "%"; ?></div>
+						</div>
 					</div>
 				</div>
 			</div>
