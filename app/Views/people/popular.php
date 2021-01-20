@@ -30,7 +30,7 @@
 					<div class="card-body d-flex flex-column">
 						<p class="card-title d-flex"> <a href="<?= base_url("/people/details/" . $people["id"]); ?>"> <?php echo $people["name"]; ?> </a> </p>
 						<div class="progress mt-auto" <?php echo ($popularityRatio > 70) ? 'data-toggle="tooltip" data-placement="top" title="It\'s getting popular right now!"' : '';?> >
-							<div class="progress-bar <?php echo ($popularityRatio > 70) ? 'bg-danger' : '' ?>" role="progressbar" style="width: <?php echo $popularityRatio ?>%" aria-valuenow="<?php echo $popularityRatio; ?>;" aria-valuemin="0" aria-valuemax="100"><?php echo (int) $popularityRatio . "%"; ?></div>
+							<div class="progress-bar font-weight-bold <?php echo ($popularityRatio > 70) ? 'bg-danger' : '' ?>" role="progressbar" style="width: <?php echo $popularityRatio ?>%" aria-valuenow="<?php echo $popularityRatio; ?>;" aria-valuemin="0" aria-valuemax="100"><?php echo (int) $popularityRatio . "%"; ?></div>
 						</div>
 					</div>
 				</div>

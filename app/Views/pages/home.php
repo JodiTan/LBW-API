@@ -8,7 +8,7 @@
   </div>
 
   <div class="row-my-3">
-	  <p>Upcoming Event</p>
+	  <p>Get the most newly created movie.</p>
   </div>
 
   <div class="row">
