@@ -18,6 +18,15 @@ class MoviesModel extends Model
         return $output;
     }
 
+    public function getTopRated($page = 1) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/movie/top_rated?api_key=$this->api_key&page=$page");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+        return $output;
+    }
+
     public function getMaximumPopularity() {
         if ($this->maximum_value == -1) {
             $firstPage = $this->getNowPlaying(1)["results"];
@@ -41,7 +50,6 @@ class MoviesModel extends Model
         curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/movie/$movieId/credits?api_key=$this->api_key");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = json_decode(curl_exec($ch), true);
-        //$output = json_decode(file_get_contents("https://api.themoviedb.org/3/movie/$movieId/credits?api_key=$this->api_key"),true);
         curl_close($ch);
         return $output;
     }

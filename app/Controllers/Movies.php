@@ -23,6 +23,16 @@ class Movies extends BaseController
         return view('movies/nowPlaying', $data);
     }
 
+    public function recommendation($page = 1) {
+        $data = [
+            'title' => 'MovieLBW | Now Playing',
+            'topRated' => $this->moviesModel->getTopRated($page),
+            'page' => $page,
+            'position' => 1
+        ];
+        return view('movies/recommendation', $data);
+    }
+
     public function details($movieId)
     {
         $data = [

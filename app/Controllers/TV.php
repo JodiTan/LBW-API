@@ -22,6 +22,16 @@ class TV extends BaseController
         ];
         return view('tv/onAir', $data);
     }
+
+    public function recommendation($page = 1) {
+        $data = [
+            'title' => 'MovieLBW | TV',
+            'topRated' => $this->tvModel->getTopRated($page),
+            'page' => $page,
+            'position' => 2
+        ];
+        return view('tv/recommendation', $data);
+    }
     
     public function details($tvId)
     {

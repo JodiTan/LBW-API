@@ -40,10 +40,14 @@ $routes->get('/home/(:num)', 'Home::index');
 $routes->get('/movies/nowPlaying/', 'Movies::index');
 $routes->get('/movies/nowPlaying/(:num)', 'Movies::index/$1');
 $routes->get('/movies/details/(:num)', 'Movies::details/$1');
+$routes->get('/movies/recommendation/', 'Movies::recommendation');
+$routes->get('/movies/recommendation/(:num)', 'Movies::recommendation/$1');
 
 // TV
 $routes->get('/tv/onAir/', 'TV::index');
 $routes->get('/tv/onAir/(:num)', 'TV::index/$1');
+$routes->get('/tv/recommendation/', 'TV::recommendation');
+$routes->get('/tv/recommendation/(:num)', 'TV::recommendation/$1');
 $routes->get('/tv/details/(:num)', 'TV::details/$1');
 
 // Recommendation
