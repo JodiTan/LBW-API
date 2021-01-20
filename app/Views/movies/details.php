@@ -40,6 +40,41 @@
         <div class="col">
             <!-- Overview -->
             <div class="row mb-1" style="text-align: justify;"><?php echo  $details["overview"]?></div>
+
+            <!-- Profit / loss -->
+            <?php
+            if (isset($details['revenue']) && isset($details['budget'])) { 
+                $profit = $details['revenue'] - $details['budget'];
+                
+                echo "<div class='row mb-1'> <b> Profit: </b> ";
+                if ($profit > 0) {
+                    echo "<p class='text-success'>"; 
+                } else if ($profit < 0) {
+                    echo "<p class='text-danger'>"; 
+                } else {
+                    echo "<p>";
+                }
+                echo "&nbsp;$" . number_format(abs($profit)) . " </p> </div>";
+            }?>
+
+            <!-- Return on Investment -->
+            <?php
+            if (isset($details['budget']) && isset($profit)) {
+                if ($details['budget'] != 0) {
+                    $roi = ($profit / $details['budget']) * 100;
+                } else {
+                    $roi = 0;
+                }
+
+                echo "<div class='row mb-1'> <b> ROI: </b> ";
+                if ($roi >= 100) {
+                    echo "<p class='text-success'>"; 
+                } else {
+                    echo "<p class='text-danger'>"; 
+                }
+                echo "&nbsp;" . number_format((float)$roi, 2, '.', '') . "% </p> </div>";
+            }
+            ?>
         </div>
     </div>
 

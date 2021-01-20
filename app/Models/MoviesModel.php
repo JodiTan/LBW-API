@@ -8,6 +8,7 @@ class MoviesModel extends Model
 {
     protected $apiKey = '2695db7da16dc8dc807f8deb23b67567';
     protected $maximumValueNowPlaying = -1;
+    protected $maximumValueUpcoming = -1;
 
     public function getNowPlaying($page = 1){
         $ch = curl_init();
@@ -21,6 +22,20 @@ class MoviesModel extends Model
             $this->maximumValueNowPlaying = max(array_column($playingMovies['results'], 'popularity'));
         }
         return array($playingMovies, $this->maximumValueNowPlaying);
+    }
+
+    public function getUpcoming($page = 1) {
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/movie/upcoming?api_key=$this->apiKey&page=$page");
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $upcoming = json_decode(curl_exec($ch), true);
+        curl_close($ch);
+
+        // Set maximum value for now playing movies.
+        if ($this->maximumValueUpcoming == -1) {
+            $this->maximumValueUpcoming = max(array_column($upcoming['results'], 'popularity'));
+        }
+        return array($upcoming, $this->maximumValueUpcoming);
     }
 
     public function getTopRated($page = 1) {

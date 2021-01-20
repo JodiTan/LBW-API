@@ -14,6 +14,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="movieDropdown">
                         <a class="dropdown-item" href="<?= base_url('/movies/nowPlaying/'); ?>">Now Playing</a>
+                        <a class="dropdown-item" href="<?= base_url('/movies/upcoming/'); ?>">Upcoming</a>
                         <a class="dropdown-item" href="<?= base_url('/movies/recommendation/'); ?>">Recommendations for You</a>
                     </div>
                 </li>

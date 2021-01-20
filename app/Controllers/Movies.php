@@ -23,6 +23,17 @@ class Movies extends BaseController
         return view('movies/nowPlaying', $data);
     }
 
+    public function upcoming($page = 1) {
+        $data = [
+            'title' => 'MovieLBW | Upcoming',
+            'nowPlaying' => $this->moviesModel->getUpcoming($page)[0],
+            'maximumPopularity' => $this->moviesModel->getUpcoming($page)[1],
+            'page' => $page,
+            'position' => 1
+        ];
+        return view('movies/upcoming', $data);
+    }
+
     public function recommendation($page = 1) {
         $data = [
             'title' => 'MovieLBW | Now Playing',

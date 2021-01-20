@@ -39,6 +39,8 @@ $routes->get('/home/(:num)', 'Home::index');
 // Movies
 $routes->get('/movies/nowPlaying/', 'Movies::nowPlaying');
 $routes->get('/movies/nowPlaying/(:num)', 'Movies::nowPlaying/$1');
+$routes->get('/movies/upcoming/', 'Movies::upcoming');
+$routes->get('/movies/upcoming/(:num)', 'Movies::upcoming/$1');
 $routes->get('/movies/recommendation/', 'Movies::recommendation');
 $routes->get('/movies/recommendation/(:num)', 'Movies::recommendation/$1');
 $routes->get('/movies/details/(:num)', 'Movies::details/$1');
