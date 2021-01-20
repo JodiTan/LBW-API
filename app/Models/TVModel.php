@@ -6,50 +6,44 @@ use CodeIgniter\Model;
 
 class TVModel extends Model
 {
-    protected $api_key = '2695db7da16dc8dc807f8deb23b67567';
-    protected $maximum_value = -1;
+    protected $apiKey = '2695db7da16dc8dc807f8deb23b67567';
+    protected $maximumValueOnAir = -1;
 
     public function getOnAir($page = 1) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/tv/on_the_air?api_key=$this->api_key&page=$page");
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/tv/on_the_air?api_key=$this->apiKey&page=$page");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $output = json_decode(curl_exec($ch), true);
+        $onAirTVs = json_decode(curl_exec($ch), true);
         curl_close($ch);
-        return $output;
+
+        // Set maximum value for on air tv shows.
+        if ($this->maximumValueOnAir == -1) {
+            $this->maximumValueOnAir = max(array_column($onAirTVs['results'], 'popularity'));
+        }
+        return array($onAirTVs, $this->maximumValueOnAir);
     }
 
     public function getTopRated($page = 1) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/tv/top_rated?api_key=$this->api_key&page=$page");
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/tv/top_rated?api_key=$this->apiKey&page=$page");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $output = json_decode(curl_exec($ch), true);
         curl_close($ch);
         return $output;
     }
 
-    public function getMaximumPopularity() {
-        if ($this->maximum_value == -1) {
-            $firstPage = $this->getOnAir(1)["results"];
-            $this->maximum_value = max(array_column($firstPage, 'popularity'));
-        }
-        return $this->maximum_value;
-    }
-
-    public function getTVInformation($tvId) {
+    public function getDetails($tvId) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/tv/$tvId?api_key=$this->api_key");
+        // Get TV details.
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/tv/$tvId?api_key=$this->apiKey");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $output = json_decode(curl_exec($ch), true);
-        curl_close($ch);
-        return $output;
-    }
+        $details = json_decode(curl_exec($ch), true);
 
-    public function getTVCredits($tvId) {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/tv/$tvId/credits?api_key=$this->api_key");
+        // Get TV credits.
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/tv/$tvId/credits?api_key=$this->apiKey");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $output = json_decode(curl_exec($ch), true);
+        $credits = json_decode(curl_exec($ch), true);
         curl_close($ch);
-        return $output;
+        return array($details, $credits);
     }
 }

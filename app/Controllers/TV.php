@@ -15,8 +15,8 @@ class TV extends BaseController
 	{
 		$data = [
             'title' => 'MovieLBW | TV',
-            'onAir' => $this->tvModel->getOnAir($page),
-            'maximumPopularity' => $this->tvModel->getMaximumPopularity(),
+            'onAir' => $this->tvModel->getOnAir($page)[0],
+            'maximumPopularity' => $this->tvModel->getOnAir($page)[1],
             'page' => $page,
             'position' => 2
         ];
@@ -37,8 +37,8 @@ class TV extends BaseController
     {
         $data = [
             'title' => 'MovieLBW | TV',
-            'information' => $this->tvModel->getTVInformation($tvId),
-            'credits' => $this->tvModel->getTVCredits($tvId)
+            'information' => $this->tvModel->getDetails($tvId)[0],
+            'credits' => $this->tvModel->getDetails($tvId)[1]
         ];
         return view('tv/details', $data);
     }

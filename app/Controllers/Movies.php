@@ -11,12 +11,12 @@ class Movies extends BaseController
         $this->moviesModel = new MoviesModel();
     }
 
-	public function index($page = 1)
+	public function nowPlaying($page = 1)
 	{
 		$data = [
             'title' => 'MovieLBW | Now Playing',
-            'nowPlaying' => $this->moviesModel->getNowPlaying($page),
-            'maximumPopularity' => $this->moviesModel->getMaximumPopularity(),
+            'nowPlaying' => $this->moviesModel->getNowPlaying($page)[0],
+            'maximumPopularity' => $this->moviesModel->getNowPlaying($page)[1],
             'page' => $page,
             'position' => 1
         ];
@@ -37,8 +37,8 @@ class Movies extends BaseController
     {
         $data = [
             'title' => 'MovieLBW | Movie Details',
-            'details' => $this->moviesModel->getDetails($movieId),
-            'credits' => $this->moviesModel->getCredits($movieId)
+            'details' => $this->moviesModel->getDetails($movieId)[0],
+            'credits' => $this->moviesModel->getDetails($movieId)[1]
         ];
         return view('movies/details', $data);
     }
