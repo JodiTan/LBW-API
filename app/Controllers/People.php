@@ -11,12 +11,12 @@ class People extends BaseController
         $this->peopleModel = new PeopleModel();
     }
 
-	public function index($page = 1)
+	public function popular($page = 1)
 	{
 		$data = [
             'title' => 'MovieLBW | Popular Peoples',
-            'popularPeoples' => $this->peopleModel->getPopularPeople($page),
-            'maximumPopularity' => $this->peopleModel->getMaximumPopularity(),
+            'popularPeoples' => $this->peopleModel->getPopularPeople($page)[0],
+            'maximumPopularity' => $this->peopleModel->getPopularPeople($page)[1],
             'page' => $page,
             'position' => 4
         ];
@@ -27,9 +27,9 @@ class People extends BaseController
     {
         $data = [
             'title' => 'MovieLBW | Profile',
-            'profile' => $this->peopleModel->getPeopleProfile($peopleId),
-            'movieCredits' => $this->peopleModel->getMovieCredits($peopleId),
-            'tvCredits' => $this->peopleModel->getTVCredits($peopleId)
+            'profile' => $this->peopleModel->getDetails($peopleId)[0],
+            'movieCredits' => $this->peopleModel->getDetails($peopleId)[1],
+            'tvCredits' => $this->peopleModel->getDetails($peopleId)[2]
         ];
         return view('people/details', $data);
     }

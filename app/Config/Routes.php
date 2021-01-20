@@ -55,8 +55,8 @@ $routes->get('/recommendation/', 'Recommendation::index');
 $routes->get('/recommendation/(:num)', 'Recommendation::index/$1');
 
 // People
-$routes->get('/people/popular', 'People::index');
-$routes->get('/people/popular/(:num)', 'People::index/$1');
+$routes->get('/people/popular', 'People::popular');
+$routes->get('/people/popular/(:num)', 'People::popular/$1');
 $routes->get('/people/details/(:num)', 'People::details/$1');
 
 // Search

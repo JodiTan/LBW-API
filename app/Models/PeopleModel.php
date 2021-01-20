@@ -6,50 +6,40 @@ use CodeIgniter\Model;
 
 class PeopleModel extends Model
 {
-    protected $api_key = '2695db7da16dc8dc807f8deb23b67567';
-    protected $maximum_value = -1;
+    protected $apiKey = '2695db7da16dc8dc807f8deb23b67567';
+    protected $maximumValuePopular = -1;
 
     public function getPopularPeople($page = 1) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/popular?api_key=$this->api_key&page=$page");
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/popular?api_key=$this->apiKey&page=$page");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $output = json_decode(curl_exec($ch), true);
+        $popularPeople = json_decode(curl_exec($ch), true);
         curl_close($ch);
-        return $output;
-    }
 
-    public function getMaximumPopularity() {
-        if ($this->maximum_value == -1) {
-            $firstPage = $this->getPopularPeople(1)["results"];
-            $this->maximum_value = max(array_column($firstPage, 'popularity'));
+        // Set maximum value for popular people.
+        if ($this->maximumValuePopular == -1) {
+            $this->maximumValuePopular = max(array_column($popularPeople['results'], 'popularity'));
         }
-        return $this->maximum_value;
+        return array($popularPeople, $this->maximumValuePopular);
     }
 
-    public function getPeopleProfile($peopleId) {
+    public function getDetails($peopleId) {
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/$peopleId?api_key=$this->api_key");
+        // Get people details.
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/$peopleId?api_key=$this->apiKey");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $output = json_decode(curl_exec($ch), true);
-        curl_close($ch);
-        return $output;
-    }
+        $details = json_decode(curl_exec($ch), true);
 
-    public function getMovieCredits($peopleId) {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/$peopleId/movie_credits?api_key=$this->api_key");
+        // Get movie credits.
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/$peopleId/movie_credits?api_key=$this->apiKey");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $output = json_decode(curl_exec($ch), true);
-        curl_close($ch);
-        return $output;
-    }
+        $movieCredits = json_decode(curl_exec($ch), true);
 
-    public function getTVCredits($peopleId) {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/$peopleId/tv_credits?api_key=$this->api_key");
+        // Get TV credits.
+        curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/person/$peopleId/tv_credits?api_key=$this->apiKey");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $output = json_decode(curl_exec($ch), true);
+        $tvCredits = json_decode(curl_exec($ch), true);
         curl_close($ch);
-        return $output;
+        return array($details, $movieCredits, $tvCredits);
     }
 }
