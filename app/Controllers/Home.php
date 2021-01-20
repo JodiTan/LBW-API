@@ -16,6 +16,7 @@ class Home extends BaseController
 		$data = [
             'title' => 'MovieLBW | Home',
             'home' => $this->homeModel->getLatest($page),
+            'maximumPopularity' => $this->homeModel->getMaximumPopularity(),
             'page' => $page,
             'position' => 0
         ];
