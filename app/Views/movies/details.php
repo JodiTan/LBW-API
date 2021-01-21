@@ -48,13 +48,13 @@
                 
                 echo "<div class='row mb-1'> <b> Profit: </b> ";
                 if ($profit > 0) {
-                    echo "<p class='text-success'>"; 
+                    echo "<div class='text-success'>"; 
                 } else if ($profit < 0) {
-                    echo "<p class='text-danger'>"; 
+                    echo "<div class='text-danger'>"; 
                 } else {
-                    echo "<p>";
+                    echo "<div>";
                 }
-                echo "&nbsp;$" . number_format(abs($profit)) . " </p> </div>";
+                echo "&nbsp;$" . number_format(abs($profit)) . " </div> </div>";
             }?>
 
             <!-- Return on Investment -->
@@ -68,11 +68,11 @@
 
                 echo "<div class='row mb-1'> <b> ROI: </b> ";
                 if ($roi >= 100) {
-                    echo "<p class='text-success'>"; 
+                    echo "<div class='text-success'>"; 
                 } else {
-                    echo "<p class='text-danger'>"; 
+                    echo "<div class='text-danger'>"; 
                 }
-                echo "&nbsp;" . number_format((float)$roi, 2, '.', '') . "% </p> </div>";
+                echo "&nbsp;" . number_format((float)$roi, 2, '.', '') . "% </div> </div>";
             }
             ?>
         </div>
