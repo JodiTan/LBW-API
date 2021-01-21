@@ -20,6 +20,12 @@
             <div class="row mb-1"><b>Place of birth:&nbsp;</b><?php echo empty($profile["place_of_birth"]) ? "-" : $profile["place_of_birth"]; ?></div>
             <!-- Date of birth -->
             <div class="row mb-1"><b>Birthday:&nbsp;</b><?php echo empty($profile["birthday"]) ? "-" : $profile["birthday"] ; ?></div>
+            <!-- Date of death -->
+            <?php
+            if (isset($profile["deathday"])) {
+                echo "<div class='row mb-1'><b>Deathday:&nbsp;</b>" . $profile["deathday"] . "</div>";
+            }
+            ?>
         </div>
     </div>
 
