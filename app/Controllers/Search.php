@@ -11,7 +11,7 @@ class Search extends BaseController
         $this->searchModel = new MultiSearchModel();
     }
 
-	public function index($page = 1)
+	public function search($page = 1)
 	{
         $query = $_GET["query"];
 		$data = [

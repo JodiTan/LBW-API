@@ -11,7 +11,7 @@ class TV extends BaseController
         $this->tvModel = new TVModel();
     }
 
-	public function index($page = 1)
+	public function onAir($page = 1)
 	{
 		$data = [
             'title' => 'MovieLBW | TV',

@@ -33,8 +33,9 @@ $routes->setAutoRoute(true);
 // $routes->get('/', 'Pages::index');
 
 // Home
-$routes->get('/home/', 'Home::index');
-$routes->get('/home/(:num)', 'Home::index');
+$routes->get('/', 'Home::home');
+$routes->get('/home/', 'Home::home');
+$routes->get('/home/(:num)', 'Home::home');
 
 // Movies
 $routes->get('/movies/nowPlaying/', 'Movies::nowPlaying');
@@ -46,15 +47,11 @@ $routes->get('/movies/recommendation/(:num)', 'Movies::recommendation/$1');
 $routes->get('/movies/details/(:num)', 'Movies::details/$1');
 
 // TV
-$routes->get('/tv/onAir/', 'TV::index');
-$routes->get('/tv/onAir/(:num)', 'TV::index/$1');
+$routes->get('/tv/onAir/', 'TV::onAir');
+$routes->get('/tv/onAir/(:num)', 'TV::onAir/$1');
 $routes->get('/tv/recommendation/', 'TV::recommendation');
 $routes->get('/tv/recommendation/(:num)', 'TV::recommendation/$1');
 $routes->get('/tv/details/(:num)', 'TV::details/$1');
-
-// Recommendation
-$routes->get('/recommendation/', 'Recommendation::index');
-$routes->get('/recommendation/(:num)', 'Recommendation::index/$1');
 
 // People
 $routes->get('/people/popular', 'People::popular');
@@ -62,7 +59,8 @@ $routes->get('/people/popular/(:num)', 'People::popular/$1');
 $routes->get('/people/details/(:num)', 'People::details/$1');
 
 // Search
-$routes->get('/search/(:num)', 'Search::index/$1');
+$routes->get('/search/', 'Search::search');
+$routes->get('/search/(:num)', 'Search::search/$1');
 
 /**
  * --------------------------------------------------------------------

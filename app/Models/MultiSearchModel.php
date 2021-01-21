@@ -13,8 +13,8 @@ class MultiSearchModel extends Model
         $escaped_query = rawurlencode($query);
         curl_setopt($ch, CURLOPT_URL, "https://api.themoviedb.org/3/search/multi?api_key=$this->apiKey&query=$escaped_query&page=$page");
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $output = json_decode(curl_exec($ch), true);
+        $searchResult = json_decode(curl_exec($ch), true);
         curl_close($ch);
-        return $output;
+        return $searchResult;
     }
 }

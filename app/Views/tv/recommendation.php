@@ -31,7 +31,7 @@
 						<p class="card-title d-flex"> <a href="<?= base_url("/tv/details/" . $tv["id"]); ?>"> <?php echo $tv["name"]; ?> </a> </p>
 						<p class="card-subtitle mb-2 text-muted"> <?php echo isset($tv["first_air_date"]) ? substr($tv["first_air_date"], 0, 4) : "Upcoming"; ?> </p>
                         <div class="progress mt-auto" <?php echo ($rating > 90) ? 'data-toggle="tooltip" data-placement="top" title="It\'s highly rated!"' : '';?>>
-							<div class="progress-bar <?php echo ($rating > 90) ? 'bg-danger' : '' ?>" role="progressbar" style="width: <?php echo $rating ?>%" aria-valuenow="<?php echo $rating; ?>;" aria-valuemin="0" aria-valuemax="100"><?php echo (int) $rating . "%"; ?></div>
+							<div class="progress-bar font-weight-bold <?php echo ($rating > 90) ? 'bg-danger' : '' ?>" role="progressbar" style="width: <?php echo $rating ?>%" aria-valuenow="<?php echo $rating; ?>;" aria-valuemin="0" aria-valuemax="100"><?php echo (int) $rating . "%"; ?></div>
 						</div>
 					</div>
 				</div>

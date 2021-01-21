@@ -1,26 +1,31 @@
 <?php namespace App\Controllers;
 
-use App\Models\HomeModel;
+use App\Models\MoviesModel;
+use App\Models\TVModel;
+use App\Models\PeopleModel;
 
 class Home extends BaseController
 {
-    protected $homeModel;
+    protected $movieModel;
+    protected $tvModel;
+    protected $peopleModel;
 
     public function __construct()
     {
-        $this->homeModel = new HomeModel();
+        $this->movieModel = new MoviesModel();
+        $this->tvModel = new TVModel();
+        $this->peopleModel = new PeopleModel();
     }
 
-	public function index($page = 1)
-	{
-		$data = [
+    public function home() {
+        $data = [
             'title' => 'MovieLBW | Home',
-            'home' => $this->homeModel->getLatest($page),
-            'maximumPopularity' => $this->homeModel->getMaximumPopularity(),
-            'page' => $page,
-            'position' => 0
+            'nowPlaying' => $this->movieModel->getNowPlaying(1)[0],
+            'onAir' => $this->tvModel->getOnAir(1)[0],
+            'popular' => $this->peopleModel->getPopularPeople(1)[0],
+            'positon' => 0
         ];
-        return view('pages/home', $data);
+        return view('home', $data);
     }
 
 	//--------------------------------------------------------------------
