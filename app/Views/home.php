@@ -4,12 +4,16 @@
 <div class="container">
   <div class="row-my-4">
     <br>
-	  <h1>Welcome to MovieLBW !</h1>
+	  <h1 class="text-center">Welcome to <strong>MovieLBW</strong> !</h1>
+  </div>
+
+  <div class="row">
+    <img class="home-wallpaper" src="<?= base_url('images/home-wallpaper.png') ?>" alt="home wallpaper">
   </div>
 
   <!-- Now playing -->
   <div class="row-my-3">
-	  <h3>Get the most newly created movie.</h3>
+	  <h3>Get the playing movies.</h3>
   </div>
   <div class="row mb-4">
     <?php
@@ -47,7 +51,7 @@
 
   <!-- On air -->
   <div class="row-my-3">
-	  <h3>Get the airing TV show.</h3>
+	  <h3>Get the airing TV shows.</h3>
   </div>
   <div class="row mb-4">
     <?php
