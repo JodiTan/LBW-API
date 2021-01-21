@@ -13,14 +13,14 @@
 
   <!-- Now playing -->
   <div class="row-my-3">
-	  <h3>Get the playing movies.</h3>
+	  <h3>See all playing movies in theaters.</h3>
   </div>
   <div class="row mb-4">
     <?php
     $nowPlaying = $nowPlaying['results'];
     $counter = 0;
     foreach($nowPlaying as $movie) {
-      if ($counter < 5) {
+      if ($counter < 6) {
     ?>
     <div class="col-sm">
       <div class="card h-100">
@@ -51,14 +51,14 @@
 
   <!-- On air -->
   <div class="row-my-3">
-	  <h3>Get the airing TV shows.</h3>
+	  <h3>See all airing TV shows.</h3>
   </div>
   <div class="row mb-4">
     <?php
     $onAir = $onAir['results'];
     $counter = 0;
     foreach($onAir as $tv) {
-      if ($counter < 5) {
+      if ($counter < 6) {
     ?>
     <div class="col-sm">
       <div class="card h-100">
@@ -89,14 +89,14 @@
 
   <!-- Popular people -->
   <div class="row-my-3">
-    <h3>Get the most popular celebrities.</h3>
+    <h3>See all popular celebrities.</h3>
   </div>
   <div class="row mb-4">
     <?php
     $popularPeople = $popular['results'];
     $counter = 0;
     foreach($popularPeople as $people) {
-      if ($counter < 5) {
+      if ($counter < 6) {
     ?>
     <div class="col-sm">
       <div class="card h-100">

@@ -12,6 +12,7 @@
             <?php
                 echo $details['release_date'];
                 echo " · ";
+
                 $temp_minute = $details['runtime']%60;
                 $temp_hour = ($details['runtime']-$temp_minute)/60;
                 if($temp_hour > 0){
@@ -20,13 +21,18 @@
                 else {
                     echo "$temp_minute minutes";
                 }
-                $temp_genre = "";
-                for($i = 0; $i < count($details["genres"])-1; $i++){
-                    $temp_genre = $temp_genre.$details["genres"][$i]["name"].", ";
+                
+                if (count($details["genres"]) > 0) {
+                    $temp_genre = "";
+                    for($i = 0; $i < count($details["genres"])-1; $i++){
+                        $temp_genre = $temp_genre.$details["genres"][$i]["name"].", ";
+                    }
+                    $temp_genre = $temp_genre.$details["genres"][$i]["name"];
+                    echo " · ";
+                    echo $temp_genre;
+                } else {
+                    echo " · Unknown";
                 }
-                $temp_genre = $temp_genre.$details["genres"][$i]["name"];
-                echo " · ";
-                echo $temp_genre;
             ?>
         </h6>
     </div>

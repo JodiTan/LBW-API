@@ -1,4 +1,4 @@
-<?= $this->extend("layout/template"); ?>
+0<?= $this->extend("layout/template"); ?>
 
 <?= $this->section("content"); ?>
 <div class="container">
@@ -11,13 +11,17 @@
         <h6>
             <?php
                 echo $information['first_air_date'] . ' - ' . $information['last_air_date'];
-                $temp_genre = "";
-                for($i = 0; $i < count($information["genres"])-1; $i++){
-                    $temp_genre = $temp_genre.$information["genres"][$i]["name"].", ";
+                if (count($information["genres"]) > 0) {
+                    $temp_genre = "";
+                    for($i = 0; $i < count($information["genres"])-1; $i++){
+                        $temp_genre = $temp_genre.$information["genres"][$i]["name"].", ";
+                    }
+                    $temp_genre = $temp_genre . $information["genres"][$i]["name"];
+                    echo " · ";
+                    echo $temp_genre;
+                } else {
+                    echo " · Unknown";
                 }
-                $temp_genre = $temp_genre.$information["genres"][$i]["name"];
-                echo " · ";
-                echo $temp_genre;
             ?>
         </h6>
     </div>
